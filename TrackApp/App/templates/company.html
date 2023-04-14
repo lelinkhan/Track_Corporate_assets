@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Company_Details{% endblock title %}
+{% block content %}
+  {% for company in all_comp %}
+        <div class="col-sm-6">
+                 <div class="card">
+                  <div class="card-body">
+                   <table class="table">
+                     <tbody>
+                       <tr>
+                           <th scope="col">Serial</th>
+                           <th scope="row">Company Name</th>
+                       </tr>
+                       <tr>
+                           <td>{{forloop.counter}}</td>
+                           <td><a href="{% url 'about_company' company.id %}">{{ company.name }}</a><br></td>
+                       </tr>
+                     </tbody>
+                   </table>
+                  </div>
+                 </div>
+            </div>
+{% endfor %}
+{% endblock content %}

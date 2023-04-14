@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Company_Details{% endblock title %}
+{% block content %}
+
+        <div class="col-sm-6">
+                 <div class="card">
+                  <div class="card-body">
+                   <table class="table">
+                     <tbody>
+                     <h1>{{company.name}}</h1>
+                       <tr>
+                           <th scope="col">Serial</th>
+                           <th scope="row">Employee Name</th>
+                           <th>Emp Device</th>
+                       </tr>
+                     {% for employee in employees %}
+                       <tr>
+                           <td>{{forloop.counter}}</td>
+                           <td>{{ employee.name }}</td>
+                           <td>
+                               <ul>
+                                    {% for log in employee.devicelog_set.all %}
+                                        <li><a href="">{{ log.device.name }}</a> checked out at {{ log.check_out_time }}</li>
+                                    {% endfor %}
+                                </ul>
+                           </td>
+                       </tr>
+                     {% endfor %}
+                     </tbody>
+                   </table>
+                  </div>
+                 </div>
+            </div>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+    {% for company in emp %}
+        <div class="col">
+         <div class="card">
+          <div class="card-body">
+           <table class="table">
+             <tbody>
+               <tr>
+                   <th scope="col">Serial</th>
+                   <th scope="row">Employee Name</th>
+                   <th scope="row">Device</th>
+                   <th scope="row">Check_in_time</th>
+                   <th scope="row">Check_out_time</th>
+                   <th scope="row">Check_in_condition</th>
+                   <th scope="row">Check_out_condition</th>
+               </tr>
+               <tr>
+                   <td>{{forloop.counter}}</td>
+                   <td><a href="">{{ company.employee }}</a><br></td>
+                   <td><a href="">{{ company.device }}</a><br></td>
+                   <td>{{ company.check_in_time }}</td>
+                   <td>{{ company.check_out_time }}</td>
+                   <td>{{ company.check_in_condition }}</td>
+                   <td>{{ company.check_out_condition }}</td>
+               </tr>
+             </tbody>
+           </table>
+          </div>
+         </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

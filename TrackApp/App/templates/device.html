@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Company_Details{% endblock title %}
+{% block content %}
+
+        <div class="col-sm-6">
+                 <div class="card">
+                  <div class="card-body">
+                   <table class="table">
+                     <tbody>
+                       <tr>
+                           <th scope="col">Serial</th>
+                           <th scope="row">Device Name</th>
+                       </tr>
+                       {% for device in all_dev %}
+                       <tr>
+                           <td>{{forloop.counter}}</td>
+                           <td><a href="{% url 'about_device' device.id %}">{{ device.name }}</a><br></td>
+                       </tr>
+                     {% endfor %}
+                     </tbody>
+                   </table>
+                  </div>
+                 </div>
+            </div>
+
+{% endblock content %}

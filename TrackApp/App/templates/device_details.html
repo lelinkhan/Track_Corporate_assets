@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Device_Details{% endblock title %}
+{% block content %}
+     <div class="col-sm-6">
+                 <div class="card">
+                  <div class="card-body">
+                   <table class="table">
+                     <tbody>
+                     <h1>{{ device.name }}</h1>
+                     <br>
+                       <tr>
+                           <th scope="row">Device Description</th>
+                           <th>Device logs</th>
+                       </tr>
+                       <tr>
+
+                           <td>{{ device.description }}</td>
+                           <td>
+                               <ul>
+                                    {% for log in deviceLog %}
+                                        <li>Checked out by {{ log.employee.name }} at {{ log.check_out_time }}{% if log.check_in_time %}, checked in at {{ log.check_in_time }}{% endif %}</li>
+                                    {% endfor %}
+                                </ul>
+                           </td>
+                       </tr>
+
+                     </tbody>
+                   </table>
+                  </div>
+                 </div>
+            </div>
+{% endblock content %}
